@@ -217,7 +217,7 @@ class BookViewController: UIViewController, MinitexPDFViewController, UIPopoverP
         if let currentPage = pdfView.currentPage,
             let pageIndex = pdfDocument?.index(for: currentPage) {
             let mark = MinitexPDFPage(pageNumber: UInt(pageIndex))
-            if let index = bookmarks.index(of: pageIndex) {
+            if let index = bookmarks.firstIndex(of: pageIndex) {
                 bookmarkButton.image = (#imageLiteral(resourceName: "Bookmark-N") as WrappedBundleImage).image
                 self.bookmarks.remove(at: index)
                 self.delegate?.userDidDelete(bookmark: mark)
